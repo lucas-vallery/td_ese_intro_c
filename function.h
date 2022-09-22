@@ -10,8 +10,8 @@ void printTab(int* tab);
 
 void fillTab(int* tab, int size);
 
-int tabMax(int* tab);
+int tabMax(int* tab, int size);
 
-int tabMin(int* tab);
+int tabMin(int* tab, int size);
 
-void bubbleSort(int* tab);
+void bubbleSort(int* tab, int size);

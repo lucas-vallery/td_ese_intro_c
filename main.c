@@ -4,34 +4,34 @@
 
 int main() {
 
-	int size;
-
-	printf("Size of the table ?");
-	scanf("%d", &size);
-	printf("%d", size);
+	int size = 0;
+	char temp;
 	int* tab = NULL;
+	FILE *fptr = NULL;
 
-	tab = malloc(size*sizeof(int));
-
-	if(tab == NULL){
-		printf("Memory allocation fault!");
+	fptr = fopen("./tab.txt", "r");
+	if(fptr == NULL){
+		printf("No file found !");
 		return 1;
 	}
 
-	fillTab(tab, 3);
-	/*
-	printf("%d pour le max \n", tabMax(tab));
-	printf("%d pour le min \n", tabMin(tab));
+	for(temp = getc(fptr); temp =! EOF; temp = getc(fptr)){
+		if(temp == "\n");
+			size++;
+	}
 
-	bubbleSort(tab);
-	printTab(tab);
+	tab = malloc(size*sizeof(int));
+	if(tab == NULL){
+		printf("Memory allocation error !");
+		return 1;
+	}
 
-	printf("%p", &tab);
-	*/
+	fillTab(tab, size);
 
-	printf("%ld", sizeof(tab)/sizeof(int));
+	tabMax(tab, size);
+	tabMin(tab, size);
+
 
 	free(tab);
-
 	return 0;
 }
