@@ -10,13 +10,15 @@ void printTab(int* tab){
 
 void fillTab(int* tab, int size) {
 	int i;
-	for(i = 0; i < size; i++){
+	for(i = 0; i < size-1; i++){
 		int x = 100;
 		while(x > 99){
 			x = rand();
 		}
 		tab[i] = x;
-		printf("%d\n", tab[i]);
+		#ifdef OPTION_CONSOLE_DEBUG
+			printf("%d", tab[i]);
+		#endif
 	}
 }
 
@@ -31,7 +33,9 @@ int tabMax (int* tab) {
 			indice = i;
 		}
 	}
-	printf("position %d = ", indice);
+	#ifdef OPTION_CONSOLE_DEBUG
+		printf("position %d = ", indice);
+	#endif
 	return m;
 }
 

@@ -6,12 +6,19 @@ int main() {
 
 	int size;
 
-	printf("Quelle taille pour votre tableau ?");
+	printf("Size of the table ?");
 	scanf("%d", &size);
+	printf("%d", size);
 	int* tab = NULL;
+
 	tab = malloc(size*sizeof(int));
 
-	fillTab(tab, size-1);
+	if(tab == NULL){
+		printf("Memory allocation fault!");
+		return 1;
+	}
+
+	fillTab(tab, 3);
 	/*
 	printf("%d pour le max \n", tabMax(tab));
 	printf("%d pour le min \n", tabMin(tab));

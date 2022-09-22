@@ -1,0 +1,1 @@
+#define OPTION_CONSOLE_DEBUG
